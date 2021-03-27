@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: cimg/node:15.11.0
+    working_directory: ~/OR-UK-frontend  
+    steps:
+    - checkout
+    - run: node --version
+    - run: echo "running tests"
+    - run: npm install
+    - run: npm test 
+workflows:
+  build-and-test:
+    jobs:
+      - test
+
+
